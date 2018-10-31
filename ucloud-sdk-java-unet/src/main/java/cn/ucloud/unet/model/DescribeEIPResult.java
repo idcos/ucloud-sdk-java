@@ -30,8 +30,14 @@ public class DescribeEIPResult extends BaseResponseResult {
         /**
          * 带宽模式, 枚举值为: 0: 非共享带宽模式, 1: 共享带宽模式
          */
-        @SerializedName("BandwithType")
-        private Integer bandwithType;
+        @SerializedName("BandwidthType")
+        private Integer bandwidthType;
+
+        /**
+         * 网络带宽
+         */
+        @SerializedName("Bandwidth")
+        private Integer bandwidth;
 
         /**
          * 弹性IP的资源绑定状态, 枚举值为: used: 已绑定, free: 未绑定, freeze: 已冻结
@@ -121,14 +127,6 @@ public class DescribeEIPResult extends BaseResponseResult {
 
         public void setWeight(Integer weight) {
             this.weight = weight;
-        }
-
-        public Integer getBandwithType() {
-            return bandwithType;
-        }
-
-        public void setBandwithType(Integer bandwithType) {
-            this.bandwithType = bandwithType;
         }
 
         public String getStatus() {
@@ -227,12 +225,29 @@ public class DescribeEIPResult extends BaseResponseResult {
             this.expire = expire;
         }
 
+        public Integer getBandwidthType() {
+            return bandwidthType;
+        }
+
+        public void setBandwidthType(Integer bandwidthType) {
+            this.bandwidthType = bandwidthType;
+        }
+
+        public Integer getBandwidth() {
+            return bandwidth;
+        }
+
+        public void setBandwidth(Integer bandwidth) {
+            this.bandwidth = bandwidth;
+        }
+
         @Override
         public String toString() {
             return "UnetEIP{" +
                     "eipId='" + eipId + '\'' +
                     ", weight=" + weight +
-                    ", bandwithType=" + bandwithType +
+                    ", bandwidthType=" + bandwidthType +
+                    ", bandwidth=" + bandwidth +
                     ", status='" + status + '\'' +
                     ", chargeType='" + chargeType + '\'' +
                     ", createTime=" + createTime +
@@ -361,7 +376,7 @@ public class DescribeEIPResult extends BaseResponseResult {
         /**
          * 已绑定资源的资源ID
          */
-        @SerializedName("ResourceId")
+        @SerializedName("ResourceID")
         private String resourceId;
 
         /**

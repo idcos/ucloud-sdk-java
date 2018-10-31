@@ -290,6 +290,7 @@ public class DefaultUhostClient implements UhostClient {
         return result;
     }
 
+
     @Override
     public void describeImage(DescribeImageParam param, UcloudHandler<DescribeImageResult> handler, Boolean... asyncFlag) {
         UcloudHttp http = new UcloudHttpImpl(DescribeImageResult.class);
@@ -297,6 +298,22 @@ public class DefaultUhostClient implements UhostClient {
             http.doGet(param, config, handler, asyncFlag);
         } catch (Exception e) {
         }
+    }
+
+    @Override
+    public void getRegion(GetRegionParam param, UcloudHandler<GetRegionResult> handler, Boolean... asyncFlag) {
+        UcloudHttp http = new UcloudHttpImpl(GetRegionResult.class);
+        try {
+            http.doGet(param, config, handler, asyncFlag);
+        } catch (Exception e) {
+        }
+    }
+
+    @Override
+    public GetRegionResult getRegion(GetRegionParam param) throws Exception {
+        UcloudHttp http = new UcloudHttpImpl(GetRegionResult.class);
+        GetRegionResult result = (GetRegionResult) http.doGet(param, config, null);
+        return result;
     }
 
     @Override

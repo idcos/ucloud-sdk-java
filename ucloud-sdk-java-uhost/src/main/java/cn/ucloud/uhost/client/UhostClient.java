@@ -314,6 +314,24 @@ public interface UhostClient extends UcloudClient {
     DescribeImageResult describeImage(DescribeImageParam param) throws Exception;
 
     /**
+     * 获取Region
+     *
+     * @param param     获取Region参数对象
+     * @param handler   回调处理器
+     * @param asyncFlag 异步标记位，仅在handler不为NULL的情况下生效，默认为true，异步的
+     */
+    void getRegion(GetRegionParam param, UcloudHandler<GetRegionResult> handler, Boolean... asyncFlag);
+
+    /**
+     * 获取Region
+     *
+     * @param param 获取Region参数对象
+     * @return 获取Region结果对象
+     * @throws Exception 获取出错则抛出异常
+     */
+    GetRegionResult getRegion(GetRegionParam param) throws Exception;
+
+    /**
      * 获取镜像
      *
      * @param param     获取镜像参数对象
